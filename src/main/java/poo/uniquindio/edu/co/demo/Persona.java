@@ -3,9 +3,9 @@ package poo.uniquindio.edu.co.demo;
 public abstract class Persona {
 
     private String nombre;
-    private int numeroId;
+    private String numeroId;
 
-    public Persona(String nombre, int numeroId) {
+    public Persona(String nombre, String numeroId) {
         this.nombre = nombre;
         this.numeroId = numeroId;
     }
@@ -15,10 +15,10 @@ public abstract class Persona {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    public int getNumeroId() {
+    public String getNumeroId() {
         return numeroId;
     }
-    public void setNumeroId(int numeroId) {
+    public void setNumeroId(String numeroId) {
         this.numeroId = numeroId;
     }
 }

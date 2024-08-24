@@ -8,7 +8,7 @@ public class Administrador extends Persona {
         private String correoElectronico;
         private List<SesionEntrenamiento> sesiones;
 
-    public Administrador(String nombre, int numeroId, String correoElectronico) {
+    public Administrador(String nombre, String numeroId, String correoElectronico) {
         super(nombre, numeroId);
         this.correoElectronico = correoElectronico;
         this.sesiones = new ArrayList<SesionEntrenamiento>();

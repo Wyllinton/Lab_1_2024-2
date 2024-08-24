@@ -4,7 +4,7 @@ public class Miembro extends Persona {
 
     private TipoMiembro tipoMiembro;
 
-    public Miembro(String nombre, int numeroId) {
+    public Miembro(String nombre, String numeroId) {
         super(nombre, numeroId);
         tipoMiembro = null;
     }
