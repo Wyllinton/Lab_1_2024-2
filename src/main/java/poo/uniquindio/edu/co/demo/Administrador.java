@@ -3,7 +3,7 @@ package poo.uniquindio.edu.co.demo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Administrador extends Persona {
+public class Administrador extends Persona{
 
         private String correoElectronico;
         private List<SesionEntrenamiento> sesiones;
