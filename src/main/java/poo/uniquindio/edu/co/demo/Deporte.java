@@ -67,7 +67,10 @@ public class Deporte {
         Predicate<Miembro> numeroIdIgual = j -> j.getNumeroId().equals(miembro.getNumeroId());
         return miembrosDeporte.stream().filter(nombreIgual.and(numeroIdIgual)).findAny();
     }
-
+    //Método sencillo para agregar un entrenador al deporte
+    public void registrarEntrenador(Entrenador entrenador){
+        entrenadores.add(entrenador);
+    }
 
 
 }
