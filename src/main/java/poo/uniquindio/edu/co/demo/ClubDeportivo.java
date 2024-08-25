@@ -12,10 +12,12 @@ public class ClubDeportivo {
     private static ClubDeportivo instancia; //Atributo que almacena la única instancia 
     private String nombre;
     private List<Persona> listaPersonas;
+    private List<Entrenador> entrenadores;
 
     private ClubDeportivo(String nombre) {
         this.nombre = nombre;
         this.listaPersonas = new ArrayList<Persona>();
+        this.entrenadores = new ArrayList<Entrenador>();
     }
 
     //Método estático que retorna la única instancia 
@@ -37,11 +39,34 @@ public class ClubDeportivo {
     public List<Persona> getListaPersonas() {
         return listaPersonas;
     }
+
+    public List<Entrenador> getEntrenadores() {
+        return entrenadores;
+    }
+
     //Método para registrar una persona en la lista 
     public void registrarPersona(Persona persona){
         validarPersonaExiste(persona);
         listaPersonas.add(persona);
     }
+    //Método para eliminar una persona en la lista 
+    public void eliminarPersona(Persona persona){
+        validarPersonaExiste(persona);
+        listaPersonas.remove(persona);
+    }
+
+    //Método para registrar un entrenador en la lista 
+    public void registrarEntrenador(Entrenador entrenador){
+        validarEntrenadorExiste(entrenador);
+        entrenadores.add(entrenador);
+    }
+
+    //Método para registrar un entrenador en la lista 
+    public void eliminarEntrenador(Entrenador entrenador){
+        validarEntrenadorExiste(entrenador);
+        entrenadores.remove(entrenador);
+    }
+
     //Método que valida si la persona existe
     private void validarPersonaExiste(Persona persona) {
         boolean existePersona = buscarPersona(persona).isPresent();
@@ -53,5 +78,15 @@ public class ClubDeportivo {
         Predicate<Persona> numeroIdIgual = j -> j.getNumeroId().equals(persona.getNumeroId());
         return listaPersonas.stream().filter(nombreIgual.and(numeroIdIgual)).findAny();
     }
-
+    //Método que valida si el entrenador existe
+    private void validarEntrenadorExiste(Entrenador entrenador) {
+        boolean existePersona = buscarEntrenador(entrenador).isPresent();
+        AssertionUtil.ASSERTION.assertion(!existePersona, "El entrenador ya está registrado");
+    }
+    //Método que busca el entrenador en la lista por su nombre y deporte
+    public Optional<Entrenador> buscarEntrenador(Entrenador  entrenador) {
+        Predicate<Entrenador> nombreIgual = j -> j.getNombre().equals(entrenador.getNombre());
+        Predicate<Entrenador> numeroIdIgual = j -> j.getDeporte().equals(entrenador.getDeporte());
+        return entrenadores.stream().filter(nombreIgual.and(numeroIdIgual)).findAny();
+    }
 }
