@@ -1,16 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="poo.uniquindio.edu.co.demo.HelloController">
-  <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-  </padding>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-  <Label fx:id="welcomeText"/>
-  <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #CAE9EB;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ClubDeportivoController">
+   <children>
+      <Label layoutX="204.0" layoutY="26.0" prefHeight="47.0" prefWidth="192.0" text="Combinatoria" textFill="#3382ea">
+         <font>
+            <Font name="Berlin Sans FB" size="32.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtNCombinatoria" layoutX="226.0" layoutY="143.0" promptText="Ingrese n" style="-fx-background-color: 000000; -fx-border-color: #9ac6c9;">
+         <font>
+            <Font name="Berlin Sans FB Bold" size="12.0" />
+         </font></TextField>
+      <TextField fx:id="txtKCombinatoria" layoutX="226.0" layoutY="188.0" promptText="Ingrese k" style="-fx-background-color: 000000; -fx-border-color: #9ac6c9;">
+         <font>
+            <Font name="Berlin Sans FB Bold" size="12.0" />
+         </font></TextField>
+      <Button fx:id="btnCalcularCombinatoria" alignment="CENTER" layoutX="269.0" layoutY="237.0" mnemonicParsing="false" onAction="#calcularCombinatoria" style="-fx-background-color: #458EF3; -fx-border-color: #2471D8;" text="Calcular " textAlignment="CENTER" />
+      <Label layoutX="49.0" layoutY="73.0" prefHeight="63.0" prefWidth="517.0" text="Ingrese dos números enteros n y k tal que n sea mayor a k">
+         <font>
+            <Font name="Berlin Sans FB Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="txtAreaCombinatoria" layoutX="51.0" layoutY="291.0" prefHeight="90.0" prefWidth="518.0">
+         <font>
+            <Font name="Berlin Sans FB Bold" size="15.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnAtrasCombinatoria" layoutX="45.0" layoutY="35.0" mnemonicParsing="false" onAction="#atrasCombinatoria" style="-fx-background-color: #458EF3; -fx-border-color: #2471D8;" text="Atrás" />
+   </children>
+</AnchorPane>

@@ -1,4 +1,4 @@
-package poo.uniquindio.edu.co.demo;
+package poo.uniquindio.edu.co.demo.Model;
 
 import java.time.LocalDate;
 
@@ -8,13 +8,29 @@ public class SesionEntrenamiento {
     private float duracion;
     private EstadoSesion estadoSesion;
     private Entrenador entrenador;
+    private Administrador administrador;
+    private Deporte deporte;
 
-    public SesionEntrenamiento(LocalDate fecha, float duracion, Entrenador entrenador
-                               , EstadoSesion estadoSesion) {
+    public SesionEntrenamiento(LocalDate fecha, float duracion, Entrenador entrenador,
+                                Administrador administrador, Deporte deporte, EstadoSesion estadoSesion) {
         this.fecha = fecha;
         this.duracion = duracion;
         this.entrenador = entrenador;
         this.estadoSesion = estadoSesion;
+        this.administrador = administrador;
+        this.deporte = deporte;
+    }
+    public Administrador getAdministrador() {
+        return administrador;
+    }
+    public Deporte getDeporte() {
+        return deporte;
+    }
+    public void setDeporte(Deporte deporte) {
+        this.deporte = deporte;
+    }
+    public void setAdministrador(Administrador administrador) {
+        this.administrador = administrador;
     }
     public LocalDate getFecha() {
         return fecha;

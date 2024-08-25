@@ -1,9 +1,11 @@
-package poo.uniquindio.edu.co.demo;
+package poo.uniquindio.edu.co.demo.Model;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Administrador extends Persona{
+public class Administrador extends Persona {
 
         private String correoElectronico;
         private List<SesionEntrenamiento> sesiones;
@@ -26,6 +28,57 @@ public class Administrador extends Persona{
     public void gestionarInscripciones(SesionEntrenamiento sesion){
 
     }
+
+    public boolean verificarCitaExistente(String fecha) throws Exception {
+        LocalDate fechaLocalDate = LocalDate.parse(fecha, DateTimeFormatter.ISO_DATE);
+        boolean sesionExiste = sesiones.stream().anyMatch(sesion -> sesion.getFecha().equals(fechaLocalDate));
+
+        if (sesionExiste) {
+            throw new Exception("La sesión con fecha: " + fecha + " ya existe");
+        } else {
+            return false;
+        }
+    }
+
+    public void programarSesion(SesionEntrenamiento sesion) throws Exception {
+        getSesiones().add(sesion);
+    }
+
+    public boolean eliminarSesion(String fecha) throws Exception {
+        SesionEntrenamiento sesion = null;
+        boolean sesionEliminada = false;
+        sesion = obtenerSesion(fecha);
+        if (sesion == null) {
+            throw new Exception("La sesión a eliminar no existe");
+        } else {
+            getSesiones().remove(sesion);
+            sesionEliminada = true;
+        }
+        return sesionEliminada;
+    }
+
+    private SesionEntrenamiento obtenerSesion(String fecha) {
+        LocalDate fechaLocalDate = LocalDate.parse(fecha, DateTimeFormatter.ISO_DATE);
+        return sesiones.stream()
+                .filter(cita -> cita.getFecha().equals(fechaLocalDate))
+                .findFirst()
+                .orElse(null);
+    }
+
+    public boolean actualizarCita(String fecha, SesionEntrenamiento sesion) throws Exception {
+        SesionEntrenamiento sesionActual = obtenerSesion(fecha);
+        if(sesionActual == null){
+            throw new Exception("La cita a actualizar no existe");
+        }else{
+            sesionActual.setFecha(sesion.getFecha());
+            sesionActual.setDuracion(sesion.getDuracion());
+            sesionActual.setEntrenador(sesion.getEntrenador());
+            return true;
+        }
+
+    }
+
+    
 
 }
 

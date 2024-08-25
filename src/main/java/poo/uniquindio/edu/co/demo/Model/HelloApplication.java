@@ -1,4 +1,4 @@
-package poo.uniquindio.edu.co.demo;
+package poo.uniquindio.edu.co.demo.Model;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="poo.uniquindio.edu.co.demo.HelloController">
-  <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-  </padding>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-  <Label fx:id="welcomeText"/>
-  <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #CAE9EB;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MiembroController">
+   <children>
+      <Label alignment="CENTER" layoutX="222.0" layoutY="25.0" prefHeight="47.0" prefWidth="172.0" text="Variaciones" textFill="#3281ea">
+         <font>
+            <Font name="Berlin Sans FB" size="32.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtNVariaciones" layoutX="226.0" layoutY="143.0" promptText="Ingrese n" style="-fx-background-color: 000000; -fx-border-color: #9ac6c9;" />
+      <TextField fx:id="txtKVariaciones" layoutX="226.0" layoutY="188.0" promptText="Ingrese k" style="-fx-background-color: 000000; -fx-border-color: #9ac6c9;" />
+      <Button fx:id="btnCalcularVariaciones" layoutX="269.0" layoutY="237.0" mnemonicParsing="false" onAction="#calcularVariaciones" style="-fx-background-color: #458EF3; -fx-border-color: #2471D8;" text="Calcular " textAlignment="CENTER" />
+      <Label layoutX="35.0" layoutY="73.0" prefHeight="63.0" prefWidth="545.0" text="Ingrese dos números enteros n y k tal que n sea mayor que k">
+         <font>
+            <Font name="Berlin Sans FB Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="txtAraeVariaciones" layoutX="36.0" layoutY="291.0" prefHeight="90.0" prefWidth="522.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnAtrasVariacion" layoutX="35.0" layoutY="25.0" mnemonicParsing="false" onAction="#atrasVariaciones" style="-fx-background-color: #458EF3; -fx-border-color: #2471D8;" text="Atrás" />
+   </children>
+</AnchorPane>
