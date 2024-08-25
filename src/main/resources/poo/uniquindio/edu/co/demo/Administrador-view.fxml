@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #CAE9EB;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AdministradorController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #CAE9EB;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poo.uniquindio.edu.co.demo.Controller.AdministradorController">
    <children>
       <ComboBox fx:id="comb" layoutX="211.0" layoutY="175.0" onAction="#Seleccionar" prefHeight="25.0" prefWidth="179.0" promptText="Presione para elegir" style="-fx-background-color: #4895FF; -fx-border-color: #1969D2;" />
       <Label alignment="CENTER" layoutX="150.0" layoutY="38.0" prefHeight="47.0" prefWidth="301.0" text="Calculadora" textAlignment="CENTER" textFill="#3483ea">
