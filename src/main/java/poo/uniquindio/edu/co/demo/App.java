@@ -11,13 +11,16 @@ import javafx.stage.Stage;
 /**
  * JavaFX App
  */
+/**
+ * JavaFX App
+ */
 public class App extends Application {
 
     private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("ClubDeportivo-view"), 640, 480);
+        Scene scene = new Scene(loadFXML("Administrador-view"), 640, 480);
         stage.setScene(scene);
         stage.show();
     }

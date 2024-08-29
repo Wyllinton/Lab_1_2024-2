@@ -1,9 +1,9 @@
 package poo.uniquindio.edu.co.demo.Controller;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ResourceBundle;
 
-import java.net.URL;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -23,7 +23,7 @@ public class ClubDeportivoController implements Initializable {
 
         switch (operacionSeleccionada) {
             case ADMINISTRADOR:
-                mostrarVentana("Administrador-view");        
+                mostrarVentana("Administrador-view");
                 break;
             case ENTRENADOR:
                 mostrarVentana("Entrenador-view");
