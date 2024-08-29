@@ -19,11 +19,11 @@ public class App extends Application {
     private static Scene scene;
 
     @Override
-    public void start(Stage stage) throws IOException {
-        Scene scene = new Scene(loadFXML("Administrador-view"), 640, 480);
-        stage.setScene(scene);
-        stage.show();
-    }
+public void start(Stage stage) throws IOException {
+    scene = new Scene(loadFXML("ClubDeportivoView"), 640, 480);
+    stage.setScene(scene);
+    stage.show();
+}
 
     public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
