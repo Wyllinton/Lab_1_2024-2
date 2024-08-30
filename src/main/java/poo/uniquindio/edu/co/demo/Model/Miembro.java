@@ -4,9 +4,9 @@ public class Miembro extends Persona {
 
     private TipoMiembro tipoMiembro;
 
-    public Miembro(String nombre, String numeroId) {
+    public Miembro(String nombre, String numeroId, poo.uniquindio.edu.co.demo.Controller.MiembroController.TipoMiembro tipoMiembro2) {
         super(nombre, numeroId);
-        tipoMiembro = null;
+        tipoMiembro2 = null;
     }
 
     public TipoMiembro getTipoMiembro() {
@@ -16,4 +16,5 @@ public class Miembro extends Persona {
     public void setTipoMiembro(TipoMiembro tipoMiembro) {
         this.tipoMiembro = tipoMiembro;
     }
+    
 }

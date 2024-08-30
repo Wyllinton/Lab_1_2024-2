@@ -1,6 +1,7 @@
 module poo.uniquindio.edu.co.demo {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.base;
 
 
     opens poo.uniquindio.edu.co.demo to javafx.fxml;

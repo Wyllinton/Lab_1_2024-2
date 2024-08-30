@@ -1,14 +1,15 @@
 package poo.uniquindio.edu.co.demo.Controller;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import poo.uniquindio.edu.co.demo.App;
+import poo.uniquindio.edu.co.demo.Model.Administrador;
 
 public class AdministradorController {
 
@@ -19,40 +20,41 @@ public class AdministradorController {
     private URL location;
 
     @FXML
-    private TextField txtNCombinatoria;
+    private TextField txtNombreAdmin;
 
     @FXML
-    private TextField txtKCombinatoria;
+    private TextField txtIdAdmin;
 
     @FXML
-    private Button btnCalcularCombinatoria;
+    private Button btnRegistrar;
 
     @FXML
     private Label txtAreaCombinatoria;
 
     @FXML
-    private Button btnAtrasCombinatoria;
+    private TableView<Administrador> tblAdmin;
 
     @FXML
-    void atrasCombinatoria(ActionEvent event) throws IOException {
-        App.setRoot("ClubDeportivoView");
-    }
+    private TableColumn<Administrador, String> clNombreAdmin;
 
     @FXML
-    void calcularCombinatoria(ActionEvent event) {
+    private TableColumn<Administrador, String> clNumeroId;
+
+    @FXML
+    void registrarAdministrador(ActionEvent event) {
 
     }
 
     @FXML
     void initialize() {
-        assert txtNCombinatoria != null
-                : "fx:id=\"txtNCombinatoria\" was not injected: check your FXML file 'Administrador.fxml'.";
-        assert txtKCombinatoria != null
-                : "fx:id=\"txtKCombinatoria\" was not injected: check your FXML file 'Administrador.fxml'.";
-        assert btnCalcularCombinatoria != null
-                : "fx:id=\"btnCalcularCombinatoria\" was not injected: check your FXML file 'Administrador.fxml'.";
-        assert txtAreaCombinatoria != null
-                : "fx:id=\"txtAreaCombinatoria\" was not injected: check your FXML file 'Administrador.fxml'.";
+        assert txtNombreAdmin != null : "fx:id=\"txtNombreAdmin\" was not injected: check your FXML file 'AdministradorView.fxml'.";
+        assert txtIdAdmin != null : "fx:id=\"txtIdAdmin\" was not injected: check your FXML file 'AdministradorView.fxml'.";
+        assert btnRegistrar != null : "fx:id=\"btnRegistrar\" was not injected: check your FXML file 'AdministradorView.fxml'.";
+        assert txtAreaCombinatoria != null : "fx:id=\"txtAreaCombinatoria\" was not injected: check your FXML file 'AdministradorView.fxml'.";
+        assert tblAdmin != null : "fx:id=\"tblAdmin\" was not injected: check your FXML file 'AdministradorView.fxml'.";
+        assert clNombreAdmin != null : "fx:id=\"clNombreAdmin\" was not injected: check your FXML file 'AdministradorView.fxml'.";
+        assert clNumeroId != null : "fx:id=\"clNumeroId\" was not injected: check your FXML file 'AdministradorView.fxml'.";
 
     }
 }
+
