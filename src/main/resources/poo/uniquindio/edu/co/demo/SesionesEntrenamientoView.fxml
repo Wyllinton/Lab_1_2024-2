@@ -5,10 +5,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #CAE9EB;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poo.uniquindio.edu.co.demo.Controller.ClubDeportivoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="667.0" style="-fx-background-color: #CAE9EB;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poo.uniquindio.edu.co.demo.Controller.SesionesEntrenamientoController">
    <children>
       <ComboBox fx:id="seleccionar_comboBox" layoutX="211.0" layoutY="175.0" onAction="#Seleccionar" prefHeight="25.0" prefWidth="179.0" promptText="Presione para elegir" style="-fx-background-color: #4895FF; -fx-border-color: #1969D2;" />
-      <Label alignment="CENTER" layoutX="150.0" layoutY="38.0" prefHeight="47.0" prefWidth="301.0" text="ClubDeportivo" textAlignment="CENTER" textFill="#3483ea">
+      <Label alignment="CENTER" layoutX="106.0" layoutY="38.0" prefHeight="47.0" prefWidth="401.0" text="Sesiones De Entrenamiento" textAlignment="CENTER" textFill="#3483ea">
          <font>
             <Font name="Berlin Sans FB" size="34.0" />
          </font>
