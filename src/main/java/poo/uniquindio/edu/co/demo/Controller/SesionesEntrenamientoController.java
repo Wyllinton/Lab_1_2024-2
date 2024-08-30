@@ -12,7 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import poo.uniquindio.edu.co.demo.App;
 
-public class ClubDeportivoController implements Initializable {
+public class SesionesEntrenamientoController implements Initializable {
 
     @FXML
     private ComboBox<TipoGestion> seleccionar_comboBox;
