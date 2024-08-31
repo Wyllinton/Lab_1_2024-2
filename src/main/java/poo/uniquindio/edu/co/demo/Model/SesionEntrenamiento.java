@@ -11,19 +11,27 @@ public class SesionEntrenamiento {
     private Administrador administrador;
     private Deporte deporte;
     private Miembro miembro;
+    private String identificador;
 
     public SesionEntrenamiento(LocalDate fecha, float duracion, Entrenador entrenador,
-                                Miembro miembro, Deporte deporte, EstadoSesion estadoSesion) {
+                                Miembro miembro, Deporte deporte, EstadoSesion estadoSesion, String identificador) {
         this.fecha = fecha;
         this.duracion = duracion;
         this.entrenador = entrenador;
         this.estadoSesion = estadoSesion;
         this.deporte = deporte;
         this.miembro = miembro;
-        administrador = new Administrador("Eduardo","1234","Eduardo1234@hotmail.com");
+        this.identificador = identificador;
+        administrador = new Administrador("Admin","1234","Admin1234@hotmail.com");
     }
     public Administrador getAdministrador() {
         return administrador;
+    }
+    public String getIdentificador() {
+        return identificador;
+    }
+    public void setIdentificador(String identificador) {
+        this.identificador = identificador;
     }
     public Miembro getMiembro() {
         return miembro;

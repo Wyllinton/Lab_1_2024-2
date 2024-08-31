@@ -33,57 +33,42 @@ public class Administrador extends Persona implements gestionarMiembro{
         return sesiones;
     }
 
-    public void gestionarInscripciones(SesionEntrenamiento sesion){
+    public String gestionarInscripciones(){
 
-    }
-
-    public boolean verificarSesionExistente(String fecha) throws Exception {
-        LocalDate fechaLocalDate = LocalDate.parse(fecha, DateTimeFormatter.ISO_DATE);
-        boolean sesionExiste = sesiones.stream().anyMatch(sesion -> sesion.getFecha().equals(fechaLocalDate));
-
-        if (sesionExiste) {
-            throw new Exception("La sesión con fecha: " + fecha + " ya existe");
-        } else {
-            return false;
+        String mensaje = "";
+        if (sesiones.isEmpty()) {
+            mensaje = "No hay sesiones.";
         }
+        else {
+            mensaje += "La(s) sesion(es) de entrenamiento son:\n";
+            for (SesionEntrenamiento sesion : sesiones) {
+                    mensaje += sesion.toString() +" \n";
+                }
+            }
+        
+        return mensaje;
+
     }
 
-    public void programarSesion(SesionEntrenamiento sesion) throws Exception {
-        getSesiones().add(sesion);
+    public void programarSesion(LocalDate fecha, float duracion, Entrenador entrenador,
+    Miembro miembro, Deporte deporte, EstadoSesion estadoSesion, String identificador) {
+        SesionEntrenamiento nuevaSesion = new SesionEntrenamiento(fecha, duracion, entrenador, miembro, deporte, estadoSesion, identificador);
+        sesiones.add(nuevaSesion);
+        System.out.println("La sesion se ha creado con éxito: " + nuevaSesion.toString());
     }
 
-    public boolean eliminarSesion(String fecha) throws Exception {
-        SesionEntrenamiento sesion = null;
-        boolean sesionEliminada = false;
-        sesion = obtenerSesion(fecha);
-        if (sesion == null) {
-            throw new Exception("La sesión a eliminar no existe");
-        } else {
-            getSesiones().remove(sesion);
-            sesionEliminada = true;
+
+    public String eliminarSesion(String identificador) {
+
+        for (SesionEntrenamiento sesion : sesiones) {
+            if (sesion.getIdentificador().equals(identificador)){
+                sesiones.remove(sesion);
+                String mensaje ="La sesion "+ sesion.toString()+" ha sido cancelada ";
+                return mensaje;
+            }
         }
-        return sesionEliminada;
-    }
-
-    private SesionEntrenamiento obtenerSesion(String fecha) {
-        LocalDate fechaLocalDate = LocalDate.parse(fecha, DateTimeFormatter.ISO_DATE);
-        return sesiones.stream()
-                .filter(cita -> cita.getFecha().equals(fechaLocalDate))
-                .findFirst()
-                .orElse(null);
-    }
-
-    public boolean actualizarSesion(String fecha, SesionEntrenamiento sesion) throws Exception {
-        SesionEntrenamiento sesionActual = obtenerSesion(fecha);
-        if(sesionActual == null){
-            throw new Exception("La cita a actualizar no existe");
-        }else{
-            sesionActual.setFecha(sesion.getFecha());
-            sesionActual.setDuracion(sesion.getDuracion());
-            sesionActual.setEntrenador(sesion.getEntrenador());
-            return true;
-        }
-
+        String mensaje = ("No se encontró sesion con el id especificado");
+        return mensaje;
     }
     
     @Override
@@ -108,13 +93,13 @@ public class Administrador extends Persona implements gestionarMiembro{
         return true;
     }
 
-    public String listarCitas(LocalDate fecha) {
+    public String mostrarSesionesPorFecha(LocalDate fecha) {
         String mensaje = "";
         if (sesiones.isEmpty()) {
             mensaje = "No hay sesiones.";
         }
         else {
-            mensaje += "La sesión de entrenamiento con fecha "+ fecha + " es:\n";
+            mensaje += "La(s) sesion(es) de entrenamiento con fecha "+ fecha + " es:\n";
             for (SesionEntrenamiento sesion : sesiones) {
                 if (sesion.getFecha().equals(fecha)){
                     mensaje += sesion.toString() +" \n";
