@@ -21,4 +21,8 @@ public abstract class Persona {
     public void setNumeroId(String numeroId) {
         this.numeroId = numeroId;
     }
+    @Override
+    public String toString() {
+        return "Persona [nombre=" + nombre + ", numeroId=" + numeroId + "]";
+    }
 }

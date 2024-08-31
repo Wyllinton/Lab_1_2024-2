@@ -78,10 +78,10 @@ public class EntrenadorController {
         Entrenador entrenador = new Entrenador(nombre, descripcion, cbDeporte.getSelectionModel().getSelectedItem(),
                 null);
 
-        if (miembroYaExiste(entrenador)) {
+        if (entrenadorYaExiste(entrenador)) {
             alert.setHeaderText(null);
             alert.setTitle("Error");
-            alert.setContentText("El miembro ya se encuentra registrado");
+            alert.setContentText("El Entrenador ya se encuentra registrado");
             alert.showAndWait();
         } else {
             this.entrenadores.add(entrenador);
@@ -93,7 +93,7 @@ public class EntrenadorController {
             Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
             successAlert.setHeaderText(null);
             successAlert.setTitle("Éxito");
-            successAlert.setContentText("Miembro registrado correctamente");
+            successAlert.setContentText("Entrenador registrado correctamente");
             successAlert.showAndWait();
         }
     }
@@ -104,7 +104,7 @@ public class EntrenadorController {
         cbDeporte.getSelectionModel().clearSelection();
     }
 
-    private boolean miembroYaExiste(Entrenador entrenador) {
+    private boolean entrenadorYaExiste(Entrenador entrenador) {
         if (entrenadores == null) {
             entrenadores = FXCollections.observableArrayList();
         }

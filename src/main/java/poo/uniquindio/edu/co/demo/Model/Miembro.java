@@ -3,10 +3,12 @@ package poo.uniquindio.edu.co.demo.Model;
 public class Miembro extends Persona {
 
     private TipoMiembro tipoMiembro;
+private String correoElectronico;
 
-    public Miembro(String nombre, String numeroId, TipoMiembro tipoMiembro) {
+    public Miembro(String nombre, String numeroId, TipoMiembro tipoMiembro, String correoElectronico) {
         super(nombre, numeroId);
-        tipoMiembro = null;
+        this.tipoMiembro = tipoMiembro;
+        this.correoElectronico = correoElectronico;
     }
 
     public TipoMiembro getTipoMiembro() {
@@ -37,6 +39,19 @@ public class Miembro extends Persona {
         if (tipoMiembro != other.tipoMiembro)
             return false;
         return true;
+    }
+
+    public String getCorreoElectronico() {
+        return correoElectronico;
+    }
+
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
+    }
+
+    @Override
+    public String toString() {
+        return "Miembro [tipoMiembro=" + tipoMiembro + ", correoElectronico=" + correoElectronico + "]";
     }
     
 }
