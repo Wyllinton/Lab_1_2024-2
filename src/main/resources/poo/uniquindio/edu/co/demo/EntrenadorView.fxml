@@ -11,38 +11,38 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="672.0" prefWidth="1376.0" style="-fx-background-color: #CAE9EB;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poo.uniquindio.edu.co.demo.Controller.EntrenadorController">
    <children>
-      <Label alignment="CENTER" layoutX="371.0" layoutY="26.0" prefHeight="47.0" prefWidth="272.0" text="Gestión Entrenador" textFill="#3281ea">
+      <Label alignment="CENTER" layoutX="24.0" layoutY="26.0" prefHeight="47.0" prefWidth="1337.0" text="Gestión Entrenador" textFill="#3281ea">
          <font>
             <Font name="Berlin Sans FB" size="32.0" />
          </font>
       </Label>
-      <TextField fx:id="txtDescripcion" layoutX="306.0" layoutY="106.0" prefHeight="24.0" prefWidth="263.0" promptText="Ingrese una descripción" style="-fx-background-color: 000000; -fx-border-color: #9ac6c9;" />
-      <Button fx:id="btnRegistrar" alignment="CENTER" layoutX="47.0" layoutY="279.0" mnemonicParsing="false" onAction="#registrarEntrenador" prefHeight="33.0" prefWidth="144.0" style="-fx-background-color: #4287E8; -fx-border-color: #2471D8;" text="Registrar" textAlignment="CENTER" />
-      <Label layoutX="49.0" layoutY="73.0" prefHeight="33.0" prefWidth="94.0" text="Nombre">
+      <TextField fx:id="txtDescripcion" layoutX="563.0" layoutY="119.0" prefHeight="24.0" prefWidth="263.0" promptText="Ingrese una descripción" style="-fx-background-color: 000000; -fx-border-color: #9ac6c9;" />
+      <Button fx:id="btnRegistrar" alignment="CENTER" layoutX="98.0" layoutY="269.0" mnemonicParsing="false" onAction="#registrarEntrenador" prefHeight="33.0" prefWidth="144.0" style="-fx-background-color: #4287E8; -fx-border-color: #2471D8;" text="Registrar" textAlignment="CENTER" />
+      <Label layoutX="204.0" layoutY="82.0" prefHeight="33.0" prefWidth="94.0" text="Nombre">
          <font>
             <Font name="Berlin Sans FB Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="306.0" layoutY="73.0" prefHeight="33.0" prefWidth="144.0" text="Descripción">
+      <Label layoutX="616.0" layoutY="82.0" prefHeight="33.0" prefWidth="144.0" text="Descripción">
          <font>
             <Font name="Berlin Sans FB Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="632.0" layoutY="73.0" prefHeight="33.0" prefWidth="94.0" text="Deporte">
+      <Label layoutX="1045.0" layoutY="82.0" prefHeight="33.0" prefWidth="94.0" text="Deporte">
          <font>
             <Font name="Berlin Sans FB Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtNombreEntrenador" layoutX="48.0" layoutY="106.0" prefHeight="18.0" prefWidth="187.0" promptText="Ingrese nombre" style="-fx-background-color: 000000; -fx-border-color: #9ac6c9;" />
-      <TableView fx:id="tblEntrenador" layoutX="208.0" layoutY="166.0" onMouseClicked="#seleccionarEntrenador" prefHeight="410.0" prefWidth="723.0">
+      <TextField fx:id="txtNombreEntrenador" layoutX="157.0" layoutY="119.0" prefHeight="18.0" prefWidth="187.0" promptText="Ingrese nombre" style="-fx-background-color: 000000; -fx-border-color: #9ac6c9;" />
+      <TableView fx:id="tblEntrenador" layoutX="326.0" layoutY="163.0" onMouseClicked="#seleccionarEntrenador" prefHeight="483.0" prefWidth="973.0">
         <columns>
           <TableColumn fx:id="clNombreEntrenador" prefWidth="173.0" text="Nombre" />
           <TableColumn fx:id="clDeporte" prefWidth="213.0" text="Deporte" />
             <TableColumn fx:id="clDescripcion" prefWidth="336.0" text="Descripción" />
         </columns>
       </TableView>
-      <ComboBox fx:id="cbDeporte" layoutX="632.0" layoutY="107.0" prefHeight="20.0" prefWidth="337.0" />
-      <Button fx:id="btnActualizar" alignment="CENTER" layoutX="47.0" layoutY="355.0" mnemonicParsing="false" onAction="#actualizarEntrenador" prefHeight="33.0" prefWidth="144.0" style="-fx-background-color: #4287E8; -fx-border-color: #2471D8;" text="Actualizar" textAlignment="CENTER" />
-      <Button fx:id="btnEliminar" alignment="CENTER" layoutX="47.0" layoutY="432.0" mnemonicParsing="false" onAction="#eliminarEntrenador" prefHeight="33.0" prefWidth="144.0" style="-fx-background-color: #4287E8; -fx-border-color: #2471D8;" text="Eliminar" textAlignment="CENTER" />
+      <ComboBox fx:id="cbDeporte" layoutX="923.0" layoutY="120.0" prefHeight="20.0" prefWidth="337.0" />
+      <Button fx:id="btnActualizar" alignment="CENTER" layoutX="98.0" layoutY="380.0" mnemonicParsing="false" onAction="#actualizarEntrenador" prefHeight="33.0" prefWidth="144.0" style="-fx-background-color: #4287E8; -fx-border-color: #2471D8;" text="Actualizar" textAlignment="CENTER" />
+      <Button fx:id="btnEliminar" alignment="CENTER" layoutX="98.0" layoutY="499.0" mnemonicParsing="false" onAction="#eliminarEntrenador" prefHeight="33.0" prefWidth="144.0" style="-fx-background-color: #4287E8; -fx-border-color: #2471D8;" text="Eliminar" textAlignment="CENTER" />
    </children>
 </AnchorPane>
