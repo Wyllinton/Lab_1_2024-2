@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
-
 import util.AssertionUtil;
 
 public class Administrador extends Persona implements gestionarMiembro{
@@ -131,6 +130,17 @@ public class Administrador extends Persona implements gestionarMiembro{
         listaMiembros.remove(miembro);
     }
 
+    public void actualizarMiembro(Miembro miembroActualizado) {
+        for (int i = 0; i < listaMiembros.size(); i++) {
+            Miembro miembro = listaMiembros.get(i);
+            if (miembro.getNumeroId().equals(miembroActualizado.getNumeroId())) {
+                // Actualizar el miembro en la lista
+                listaMiembros.set(i, miembroActualizado); 
+                break; // Salir del bucle una vez que se ha encontrado y actualizado el miembro
+            }
+        }
+    }
+
     // Método para registrar un entrenador en la lista
     public void registrarEntrenador(Entrenador entrenador) {
         validarEntrenadorExiste(entrenador);
@@ -141,6 +151,17 @@ public class Administrador extends Persona implements gestionarMiembro{
     public void eliminarEntrenador(Entrenador entrenador) {
         validarEntrenadorExiste(entrenador);
         entrenadores.remove(entrenador);
+    }
+
+    public void actualizarEntrenador(Entrenador entrenadorActualizado) {
+        for (int i = 0; i < entrenadores.size(); i++) {
+            Entrenador entrenador = entrenadores.get(i);
+            if (entrenador.getNombre().equals(entrenador.getNombre())) {
+                // Actualizar el miembro en la lista
+                entrenadores.set(i, entrenadorActualizado);    
+                break; // Salir del bucle una vez que se ha encontrado y actualizado el entrenador
+            }
+        }
     }
 
     // Método que valida si el miembro existe
