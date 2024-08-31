@@ -15,40 +15,46 @@
             <Font name="Berlin Sans FB" size="32.0" />
          </font>
       </Label>
-      <TextField fx:id="txtNombreAdmin" layoutX="49.0" layoutY="166.0" promptText="Ingrese nombre" style="-fx-background-color: 000000; -fx-border-color: #9ac6c9;">
+      <TextField fx:id="txtNombreAdmin" layoutX="49.0" layoutY="105.0" promptText="Ingrese nombre" style="-fx-background-color: 000000; -fx-border-color: #9ac6c9;">
          <font>
             <Font name="Berlin Sans FB Bold" size="12.0" />
          </font></TextField>
-      <TextField fx:id="txtIdAdmin" layoutX="350.0" layoutY="166.0" promptText="Ingrese Id" style="-fx-background-color: 000000; -fx-border-color: #9ac6c9;">
+      <TextField fx:id="txtIdAdmin" layoutX="344.0" layoutY="105.0" promptText="Ingrese Id" style="-fx-background-color: 000000; -fx-border-color: #9ac6c9;">
          <font>
             <Font name="Berlin Sans FB Bold" size="12.0" />
          </font></TextField>
       <Button fx:id="btnRegistrar" alignment="CENTER" layoutX="49.0" layoutY="215.0" mnemonicParsing="false" onAction="#registrarAdministrador" style="-fx-background-color: #458EF3; -fx-border-color: #2471D8;" text="Registrar" textAlignment="CENTER" />
-      <Label layoutX="49.0" layoutY="73.0" prefHeight="63.0" prefWidth="517.0" text="Administrar inscripciones">
-         <font>
-            <Font name="Berlin Sans FB Bold" size="20.0" />
-         </font>
-      </Label>
       <Label fx:id="txtAreaCombinatoria" layoutX="51.0" layoutY="291.0" prefHeight="90.0" prefWidth="518.0">
          <font>
             <Font name="Berlin Sans FB Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="49.0" layoutY="136.0" prefHeight="11.0" prefWidth="81.0" text="Nombre">
+      <Label layoutX="49.0" layoutY="73.0" prefHeight="11.0" prefWidth="81.0" text="Nombre">
          <font>
             <Font name="Berlin Sans FB Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="350.0" layoutY="135.0" prefHeight="33.0" prefWidth="102.0" text="Número Id">
+      <Label layoutX="344.0" layoutY="72.0" prefHeight="33.0" prefWidth="102.0" text="Número Id">
          <font>
             <Font name="Berlin Sans FB Bold" size="20.0" />
          </font>
       </Label>
       <TableView fx:id="tblAdmin" layoutX="174.0" layoutY="200.0" prefHeight="200.0" prefWidth="425.0">
         <columns>
-          <TableColumn fx:id="clNombreAdmin" prefWidth="195.0" text="Nombre" />
-          <TableColumn fx:id="clNumeroId" prefWidth="229.0" text="Numero Id" />
+          <TableColumn fx:id="clNombreAdmin" prefWidth="101.0" text="Nombre" />
+          <TableColumn fx:id="clNumeroId" prefWidth="154.0" text="Numero Id" />
+            <TableColumn fx:id="clCorreo" prefWidth="169.0" text="Correo" />
         </columns>
       </TableView>
+      <Label layoutX="49.0" layoutY="148.0" prefHeight="11.0" prefWidth="81.0" text="Correo">
+         <font>
+            <Font name="Berlin Sans FB Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtCorreo" layoutX="125.0" layoutY="150.0" prefHeight="27.0" prefWidth="223.0" promptText="Ingrese correo" style="-fx-background-color: 000000; -fx-border-color: #9ac6c9;">
+         <font>
+            <Font name="Berlin Sans FB Bold" size="12.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>

@@ -85,6 +85,28 @@ public class Administrador extends Persona implements gestionarMiembro{
         }
 
     }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Administrador other = (Administrador) obj;
+        if (correoElectronico == null) {
+            if (other.correoElectronico != null)
+                return false;
+        } else if (!correoElectronico.equals(other.correoElectronico))
+            return false;
+        if (sesiones == null) {
+            if (other.sesiones != null)
+                return false;
+        } else if (!sesiones.equals(other.sesiones))
+            return false;
+        return true;
+    }
 
     public String listarCitas(LocalDate fecha) {
         String mensaje = "";
