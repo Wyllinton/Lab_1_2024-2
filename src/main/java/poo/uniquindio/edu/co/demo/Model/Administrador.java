@@ -50,11 +50,13 @@ public class Administrador extends Persona implements gestionarMiembro{
 
     }
 
-    public void programarSesion(LocalDate fecha, float duracion, Entrenador entrenador,
-    Miembro miembro, Deporte deporte, EstadoSesion estadoSesion, String identificador) {
+    public String programarSesion(LocalDate fecha, float duracion, Entrenador entrenador,
+    Miembro miembro, Deporte deporte, String estadoSesion, String identificador) {
+        String mensaje = "";
         SesionEntrenamiento nuevaSesion = new SesionEntrenamiento(fecha, duracion, entrenador, miembro, deporte, estadoSesion, identificador);
         sesiones.add(nuevaSesion);
-        System.out.println("La sesion se ha creado con éxito: " + nuevaSesion.toString());
+        mensaje = "La sesion se ha creado con éxito: " + nuevaSesion.toString();
+        return mensaje;
     }
 
 

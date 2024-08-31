@@ -1,6 +1,7 @@
 package poo.uniquindio.edu.co.demo.Controller;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -12,7 +13,11 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import poo.uniquindio.edu.co.demo.Model.ClubDeportivo;
+import poo.uniquindio.edu.co.demo.Model.Deporte;
+import poo.uniquindio.edu.co.demo.Model.Entrenador;
 import poo.uniquindio.edu.co.demo.Model.EstadoSesion;
+import poo.uniquindio.edu.co.demo.Model.Miembro;
  
  public class SesionesEntrenamientoController {
  
@@ -57,6 +62,9 @@ import poo.uniquindio.edu.co.demo.Model.EstadoSesion;
  
     @FXML // fx:id="verSesiones_btn"
     private Button verSesiones_btn; // Value injected by FXMLLoader
+
+
+    ClubDeportivo club = new ClubDeportivo("");
  
     @FXML
     void Seleccionar(ActionEvent event) {
@@ -80,7 +88,26 @@ import poo.uniquindio.edu.co.demo.Model.EstadoSesion;
  
     @FXML
     void programarSesion(ActionEvent event) {
- 
+        
+        LocalDate fecha = fechaSesion.getValue();
+        float duracion = txtDuracion.getText();
+        Entrenador entrenador = txtEntrenador.getText();
+        Miembro miembro = txtMiembro.getText();
+        Deporte deporte = txtDeporte.getText();
+        String estadoSesion = estadoSesion_ComboBox.getSelectionModel().getSelectedItem().toString();
+        String identificador = txtIdentificador.getText();
+        
+        sesionCreada_txt.setText(club.administrador.programarSesion(fecha, duracion, entrenador, miembro, deporte, estadoSesion, identificador));
+        
+
+       
+        fecha.setValue(null);
+        txtDuracion.setText("");
+        txtEntrenador.setText("");
+        txtMiembro.setText("");
+        estadoSesion_ComboBox.setValue(null);
+        txtDeporte.setText("");
+        txtIdentificador.setText("");
      }
  
      @FXML // This method is called by the FXMLLoader when initialization is complete

@@ -6,7 +6,7 @@ public class SesionEntrenamiento {
 
     private LocalDate fecha;
     private float duracion;
-    private EstadoSesion estadoSesion;
+    private String estadoSesion;
     private Entrenador entrenador;
     private Administrador administrador;
     private Deporte deporte;
@@ -14,7 +14,7 @@ public class SesionEntrenamiento {
     private String identificador;
 
     public SesionEntrenamiento(LocalDate fecha, float duracion, Entrenador entrenador,
-                                Miembro miembro, Deporte deporte, EstadoSesion estadoSesion, String identificador) {
+                                Miembro miembro, Deporte deporte, String estadoSesion, String identificador) {
         this.fecha = fecha;
         this.duracion = duracion;
         this.entrenador = entrenador;
@@ -60,11 +60,11 @@ public class SesionEntrenamiento {
     public void setDuracion(float duracion) {
         this.duracion = duracion;
     }
-    public void setEstadoSesion(EstadoSesion estadoSesion){
+    public void setEstadoSesion(String estadoSesion){
         this.estadoSesion = estadoSesion;
     }
 
-    public EstadoSesion getEstadoSesion() {
+    public String getEstadoSesion() {
         return estadoSesion;
     }
 
