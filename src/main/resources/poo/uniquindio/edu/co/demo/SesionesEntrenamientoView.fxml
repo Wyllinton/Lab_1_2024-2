@@ -19,7 +19,7 @@
          </font>
       </Label>
       <DatePicker fx:id="fechaSesion" layoutX="140.0" layoutY="161.0" prefHeight="31.0" prefWidth="215.0" style="-fx-background-color: #9ac6c9;" />
-      <ComboBox fx:id="estadoSesion_ComboBox" layoutX="141.0" layoutY="120.0" onAction="#Seleccionar" prefHeight="31.0" prefWidth="215.0" promptText="Seleccionar" />
+      <ComboBox fx:id="estadoSesion_ComboBox" layoutX="141.0" layoutY="120.0" onAction="#SeleccionarEstado" prefHeight="31.0" prefWidth="215.0" promptText="Seleccionar" />
       <Label layoutX="52.0" layoutY="121.0" prefHeight="30.0" prefWidth="78.0" text="Estado">
          <font>
             <Font name="Berlin Sans FB Bold" size="20.0" />
@@ -30,7 +30,6 @@
             <Font name="Berlin Sans FB Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtDeporte" layoutX="141.0" layoutY="200.0" prefHeight="30.0" prefWidth="215.0" promptText="Ingresar nombre" style="-fx-background-color: 000000; -fx-border-color: #9ac6c9;" />
       <TextField fx:id="txtDuracion" layoutX="141.0" layoutY="85.0" prefHeight="30.0" prefWidth="215.0" promptText="Ingresar nombre" style="-fx-background-color: 000000; -fx-border-color: #9ac6c9;" />
       <TextField fx:id="txtEntrenador" layoutX="141.0" layoutY="287.0" prefHeight="30.0" prefWidth="215.0" promptText="Ingresar nombre" style="-fx-background-color: 000000; -fx-border-color: #9ac6c9;" />
       <TextField fx:id="txtMiembro" layoutX="141.0" layoutY="250.0" prefHeight="30.0" prefWidth="215.0" promptText="Ingresar nombre" style="-fx-background-color: 000000; -fx-border-color: #9ac6c9;" />
@@ -95,5 +94,6 @@
             <Font name="Berlin Sans FB Bold" size="20.0" />
          </font>
       </Label>
+      <ComboBox fx:id="deporte_ComboBox" layoutX="141.0" layoutY="202.0" onAction="#SeleccionarDeporte" prefHeight="31.0" prefWidth="215.0" promptText="Seleccionar" />
    </children>
 </AnchorPane>
