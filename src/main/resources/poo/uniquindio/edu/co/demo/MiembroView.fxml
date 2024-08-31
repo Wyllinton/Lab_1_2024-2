@@ -9,17 +9,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #CAE9EB;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poo.uniquindio.edu.co.demo.Controller.MiembroController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="688.0" prefWidth="1377.0" style="-fx-background-color: #CAE9EB;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poo.uniquindio.edu.co.demo.Controller.MiembroController">
    <children>
-      <Label alignment="CENTER" layoutX="126.0" layoutY="14.0" prefHeight="39.0" prefWidth="288.0" text="Gestión Miembros" textFill="#3281ea">
+      <Label alignment="CENTER" layoutX="126.0" layoutY="14.0" prefHeight="39.0" prefWidth="967.0" text="Gestión Miembros" textFill="#3281ea">
          <font>
             <Font name="Berlin Sans FB" size="32.0" />
          </font>
       </Label>
-      <TextField fx:id="txtNombre" layoutX="35.0" layoutY="103.0" prefHeight="30.0" prefWidth="215.0" promptText="Ingresar nombre" style="-fx-background-color: 000000; -fx-border-color: #9ac6c9;" />
-      <TextField fx:id="txtNumeroId" layoutX="341.0" layoutY="103.0" prefHeight="30.0" prefWidth="215.0" promptText="Ingresar ID" style="-fx-background-color: 000000; -fx-border-color: #9ac6c9;" />
-      <Button fx:id="btnRegistrar" layoutX="333.0" layoutY="161.0" mnemonicParsing="false" onAction="#registrarMiembro" style="-fx-background-color: #458EF3; -fx-border-color: #2471D8;" text="Registrar" textAlignment="CENTER" />
-      <Label layoutX="35.0" layoutY="73.0" prefHeight="26.0" prefWidth="204.0" text="Nombre">
+      <TextField fx:id="txtNombre" layoutX="292.0" layoutY="103.0" prefHeight="30.0" prefWidth="215.0" promptText="Ingresar nombre" style="-fx-background-color: 000000; -fx-border-color: #9ac6c9;" />
+      <TextField fx:id="txtNumeroId" layoutX="784.0" layoutY="103.0" prefHeight="30.0" prefWidth="215.0" promptText="Ingresar ID" style="-fx-background-color: 000000; -fx-border-color: #9ac6c9;" />
+      <Button fx:id="btnRegistrar" layoutX="839.0" layoutY="173.0" mnemonicParsing="false" onAction="#registrarMiembro" style="-fx-background-color: #458EF3; -fx-border-color: #2471D8;" text="Registrar" textAlignment="CENTER" />
+      <Label layoutX="297.0" layoutY="67.0" prefHeight="26.0" prefWidth="204.0" text="Nombre">
          <font>
             <Font name="Berlin Sans FB Bold" size="20.0" />
          </font>
@@ -29,18 +29,18 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="341.0" layoutY="73.0" text="Número Identificación">
+      <Label layoutX="793.0" layoutY="73.0" text="Número Identificación">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <ComboBox fx:id="seleccionar_comboBox" layoutX="36.0" layoutY="186.0" onAction="#Seleccionar" prefHeight="31.0" prefWidth="215.0" promptText="Seleccionar" />
-      <Label layoutX="36.0" layoutY="149.0" text="Tipo Miembro">
+      <ComboBox fx:id="seleccionar_comboBox" layoutX="292.0" layoutY="187.0" onAction="#Seleccionar" prefHeight="31.0" prefWidth="215.0" promptText="Seleccionar" />
+      <Label layoutX="280.0" layoutY="145.0" text="Tipo Miembro">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <TableView fx:id="tblMiembros" layoutX="36.0" layoutY="229.0" prefHeight="157.0" prefWidth="548.0">
+      <TableView fx:id="tblMiembros" layoutX="235.0" layoutY="261.0" prefHeight="353.0" prefWidth="870.0">
         <columns>
           <TableColumn fx:id="colNombre" prefWidth="214.0" text="Nombre" />
           <TableColumn fx:id="colNumeroId" prefWidth="175.0" text="Número Id" />

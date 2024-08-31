@@ -17,7 +17,7 @@ public class ClubDeportivo implements gestionarMiembro {
 
     public ClubDeportivo(String nombre) {
         this.nombre = nombre;
-        administrador = new Administrador("Admin","1234","Admin1234@hotmail.com");
+        administrador = new Administrador("Admin","0000","Admin1234@hotmail.com");
         this.listaPersonas = new ArrayList<Persona>();
         this.entrenadores = new ArrayList<Entrenador>();
     }

@@ -13,14 +13,14 @@ public class Administrador extends Persona implements gestionarMiembro{
 
         private String correoElectronico;
         private List<SesionEntrenamiento> sesiones;
-        private List<Persona> listaPersonas;
+        private List<Miembro> listaMiembros;
         private List<Entrenador> entrenadores;
 
     public Administrador(String nombre, String numeroId, String correoElectronico) {
         super(nombre, numeroId);
         this.correoElectronico = correoElectronico;
         this.sesiones = new ArrayList<SesionEntrenamiento>();
-        this.listaPersonas = new ArrayList<Persona>();
+        this.listaMiembros = new ArrayList<Miembro>();
         this.entrenadores = new ArrayList<Entrenador>();
     }
     public String getCorreoElectronico() {
@@ -111,24 +111,25 @@ public class Administrador extends Persona implements gestionarMiembro{
         return mensaje;
     }
 
-       public List<Persona> getListaPersonas() {
-        return listaPersonas;
+       public List<Miembro> getListaMiembros() {
+        return listaMiembros;
+
     }
 
     public List<Entrenador> getEntrenadores() {
         return entrenadores;
     }
 
-    // Método para registrar una persona en la lista
-    public void registrarPersona(Persona persona) {
-        validarPersonaExiste(persona);
-        listaPersonas.add(persona);
+    // Método para registrar un miembro en la lista
+    public void registrarMiembro(Miembro miembro) {
+        validarMiembroExiste(miembro);
+        listaMiembros.add(miembro);
     }
 
-    // Método para eliminar una persona en la lista
-    public void eliminarPersona(Persona persona) {
-        validarPersonaExiste(persona);
-        listaPersonas.remove(persona);
+    // Método para eliminar un miembro en la lista
+    public void eliminarMiembro(Miembro miembro) {
+        validarMiembroExiste(miembro);
+        listaMiembros.remove(miembro);
     }
 
     // Método para registrar un entrenador en la lista
@@ -143,17 +144,17 @@ public class Administrador extends Persona implements gestionarMiembro{
         entrenadores.remove(entrenador);
     }
 
-    // Método que valida si la persona existe
-    private void validarPersonaExiste(Persona persona) {
-        boolean existePersona = buscarPersona(persona).isPresent();
-        AssertionUtil.ASSERTION.assertion(!existePersona, "La persona ya está registrada");
+    // Método que valida si el miembro existe
+    private void validarMiembroExiste(Miembro miembro) {
+        boolean existeMiembro = buscarMiembro(miembro).isPresent();
+        AssertionUtil.ASSERTION.assertion(!existeMiembro, "El miembro ya está registrado");
     }
 
-    // Método que busca la persona en la lista por su nombre y numeroId
-    public Optional<Persona> buscarPersona(Persona persona) {
-        Predicate<Persona> nombreIgual = j -> j.getNombre().equals(persona.getNombre());
-        Predicate<Persona> numeroIdIgual = j -> j.getNumeroId().equals(persona.getNumeroId());
-        return listaPersonas.stream().filter(nombreIgual.and(numeroIdIgual)).findAny();
+    // Método que busca el miembro en la lista por su nombre y numeroId
+    public Optional<Miembro> buscarMiembro(Miembro miembro) {
+        Predicate<Miembro> nombreIgual = j -> j.getNombre().equals(miembro.getNombre());
+        Predicate<Miembro> numeroIdIgual = j -> j.getNumeroId().equals(miembro.getNumeroId());
+        return listaMiembros.stream().filter(nombreIgual.and(numeroIdIgual)).findAny();
     }
 
     // Método que valida si el entrenador existe
@@ -168,6 +169,21 @@ public class Administrador extends Persona implements gestionarMiembro{
         Predicate<Entrenador> numeroIdIgual = j -> j.getDeporte().equals(entrenador.getDeporte());
         return entrenadores.stream().filter(nombreIgual.and(numeroIdIgual)).findAny();
     }
+
+
+    public Entrenador buscarEntrenadorPorNombre(String nombre) {
+        return entrenadores.stream()
+                .filter(entrenador -> entrenador.getNombre().equals(nombre))
+                .findAny()
+                .orElse(null); // Devuelve null si no se encuentra el entrenador
+    }    
+
+    public Miembro buscarMiembroPorId(String id) {
+        return listaMiembros.stream()
+                .filter(miembro -> miembro.getNumeroId().equals(id))
+                .findAny()
+                .orElse(null); // Devuelve null si no se encuentra el miembro
+    }  
 
     @Override
     public void registrarMiembro(Miembro miembro, Deporte deporte) {

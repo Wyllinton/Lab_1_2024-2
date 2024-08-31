@@ -22,7 +22,7 @@ public class SesionEntrenamiento {
         this.deporte = deporte;
         this.miembro = miembro;
         this.identificador = identificador;
-        administrador = new Administrador("Admin","1234","Admin1234@hotmail.com");
+        administrador = new Administrador("Admin","0000","Admin1234@hotmail.com");
     }
     public Administrador getAdministrador() {
         return administrador;
@@ -78,6 +78,8 @@ public class SesionEntrenamiento {
     @Override
     public String toString() {
         return "SesionEntrenamiento [fecha=" + fecha + ", duracion=" + duracion + ", estadoSesion=" + estadoSesion
-                + ", entrenador=" + entrenador + ", administrador=" + administrador + ", deporte=" + deporte + "]";
+                + ", entrenador=" + entrenador + ", administrador=" + administrador + ", deporte=" + deporte
+                + ", miembro=" + miembro + ", identificador=" + identificador + "]";
     }
+    
 }
