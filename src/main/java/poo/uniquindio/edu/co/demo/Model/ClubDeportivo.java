@@ -11,11 +11,13 @@ public class ClubDeportivo implements gestionarMiembro {
 
     private static ClubDeportivo instancia; // Atributo que almacena la única instancia
     private String nombre;
+    public Administrador administrador;
     private List<Persona> listaPersonas;
     private List<Entrenador> entrenadores;
 
     private ClubDeportivo(String nombre) {
         this.nombre = nombre;
+        administrador = new Administrador("Admin","1234","Admin1234@hotmail.com");
         this.listaPersonas = new ArrayList<Persona>();
         this.entrenadores = new ArrayList<Entrenador>();
     }
