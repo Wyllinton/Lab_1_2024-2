@@ -16,6 +16,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.util.StringConverter;
 import poo.uniquindio.edu.co.demo.Model.Miembro;
 import poo.uniquindio.edu.co.demo.Model.TipoMiembro;
@@ -86,14 +87,13 @@ public class MiembroController {
     }
 
     @FXML
-    void seleccionarMiembro(ActionEvent event) {
+    void seleccionarMiembro(MouseEvent event) {
         Miembro miembroSeleccionado = this.tblMiembros.getSelectionModel().getSelectedItem();
-
-        if (miembroSeleccionado != null) {
-            this.txtNombre.setText(miembroSeleccionado.getNombre());
-            this.txtNumeroId.setText(miembroSeleccionado.getNumeroId());
-            this.txtCorreo.setText(miembroSeleccionado.getCorreoElectronico());
-            this.cbTipo.getSelectionModel().select(miembroSeleccionado.getTipoMiembro());
+            if(miembroSeleccionado != null){
+            txtNombre.setText(miembroSeleccionado.getNombre());
+            txtNumeroId.setText(miembroSeleccionado.getNumeroId());
+            txtCorreo.setText(miembroSeleccionado.getCorreoElectronico());
+            cbTipo.getSelectionModel().select(miembroSeleccionado.getTipoMiembro());
         }
     }
 
