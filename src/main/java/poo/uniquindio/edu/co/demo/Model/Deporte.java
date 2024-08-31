@@ -14,11 +14,12 @@ public class Deporte {
     private List<Miembro> miembrosDeporte;
     private NivelDificultad nivelDificultad;
 
-    public Deporte(String nombre, String descripcion, List <Entrenador> entrenadores) {
+    public Deporte(String nombre, String descripcion, List <Entrenador> entrenadores, NivelDificultad nivelDificultad) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.entrenadores = entrenadores;
         this.miembrosDeporte = new ArrayList<>();
+        this.nivelDificultad = nivelDificultad;
     }
     public String getNombre() {
         return nombre;
@@ -70,6 +71,11 @@ public class Deporte {
     //Método sencillo para agregar un entrenador al deporte
     public void registrarEntrenador(Entrenador entrenador){
         entrenadores.add(entrenador);
+    }
+    @Override
+    public String toString() {
+        return "Deporte [nombre=" + nombre + ", descripcion=" + descripcion + ", entrenadores=" + entrenadores
+                + ", miembrosDeporte=" + miembrosDeporte + ", nivelDificultad=" + nivelDificultad + "]";
     }
 
 

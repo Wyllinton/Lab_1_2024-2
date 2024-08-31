@@ -71,7 +71,6 @@ public class MiembroController {
             alert.setTitle("Error");
             alert.setContentText("Todos los campos son requeridos");
             alert.showAndWait();
-            return;
         }
 
         Miembro miembro = new Miembro(nombre, numeroId, tipoMiembro);
@@ -84,7 +83,7 @@ public class MiembroController {
         } else {
             this.miembros.add(miembro);
             this.tblMiembros.setItems(miembros); // Actualizar los items de la TableView
-            this.tblMiembros.refresh(); // Refrescar la TableView
+            //this.tblMiembros.refresh(); Refrescar la TableView
             limpiarCampos();
 
             // Mostrar alerta de éxito
@@ -147,8 +146,6 @@ public class MiembroController {
                 setText(empty ? "" : item.toString());
             }
         });
-
-        tblMiembros.setItems(miembros);
 
         assert txtNombre != null
                 : "fx:id=\"txtNVariaciones\" was not injected: check your FXML file 'MiembroView.fxml'.";
