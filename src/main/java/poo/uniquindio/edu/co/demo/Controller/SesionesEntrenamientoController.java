@@ -157,21 +157,25 @@ public class SesionesEntrenamientoController{
             estadoSesion_ComboBox.getSelectionModel();
 
             ObservableList<Deporte> deportes = FXCollections.observableArrayList(
-                        new Deporte("Fútbol", "Deporte de contacto", null, NivelDificultad.BAJO),
-                        new Deporte("Baloncesto", "Deporte de contacto", null, NivelDificultad.MEDIO),
-                        new Deporte("Tenis", "Deporte de habilidad", null, NivelDificultad.ALTO));
+                  new Deporte("Fútbol", "Deporte de contacto", null, NivelDificultad.BAJO),
+                  new Deporte("Baloncesto", "Deporte de contacto", null, NivelDificultad.MEDIO),
+                  new Deporte("Tenis", "Deporte de habilidad", null, NivelDificultad.ALTO));
             deporte_ComboBox.setItems(deportes);
 
             ObservableList<Miembro> miembros = FXCollections.observableArrayList(
-                  new Miembro("Juan", "479568", TipoMiembro.JUVENIL, "juan.perez@correo.com"),
-                  new Miembro("Pedro", "1534", TipoMiembro.JUVENIL, "pedro@ans.com"),
-                  new Miembro("Milena", "153248", TipoMiembro.ADULTO, "mile@ans.com"),
-                  new Miembro("Andrea", "64785", TipoMiembro.JUVENIL, "andrea@ans.com"),
-                  new Miembro("Marlon", "32145", TipoMiembro.ADULTO, "marlo@ans.com"));
+                  new Miembro("Juan", "0001", TipoMiembro.JUVENIL, "juan.perez@correo.com"),
+                  new Miembro("Pedro", "0002", TipoMiembro.JUVENIL, "pedro@ans.com"),
+                  new Miembro("Milena", "0003", TipoMiembro.ADULTO, "mile@ans.com"),
+                  new Miembro("Andrea", "0004", TipoMiembro.JUVENIL, "andrea@ans.com"),
+                  new Miembro("Marlon", "0005", TipoMiembro.ADULTO, "marlo@ans.com"));
             miembro_comboBox.setItems(miembros);
 
-            ObservableList<Entrenador> entrenadores = FXCollections
-                        .observableArrayList(club.administrador.getEntrenadores());
+            ObservableList<Entrenador> entrenadores = FXCollections.observableArrayList(
+                  new Entrenador("","",new Deporte("Fútbol", "Deporte de contacto", null, NivelDificultad.BAJO)),
+                  new Entrenador("","", new Deporte("Baloncesto", "Deporte de contacto", null, NivelDificultad.MEDIO)),
+                  new Entrenador("","", new Deporte("Tenis", "Deporte de habilidad", null, NivelDificultad.ALTO)),
+                  new Entrenador("","",new Deporte("Fútbol", "Deporte de contacto", null, NivelDificultad.BAJO))
+                        );
             entrenador_comboBox.setItems(entrenadores);
             assert eliminarSesion_btn != null
                         : "fx:id=\"eliminarSesion_btn\" was not injected: check your FXML file 'SesionesEntrenamientoView.fxml'.";
