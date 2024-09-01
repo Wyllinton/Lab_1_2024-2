@@ -192,6 +192,7 @@ public class MiembroController {
             alert.showAndWait();
         }
         Miembro miembro = new Miembro(nombre, numeroId, tipo, correo);
+        club.administrador.registrarMiembro(miembro);
 
         if (miembroYaExiste(miembro)) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
