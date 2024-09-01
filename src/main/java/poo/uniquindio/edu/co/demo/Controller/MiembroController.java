@@ -133,6 +133,7 @@ public class MiembroController {
                     successAlert.setTitle("Éxito");
                     successAlert.setContentText("El miembro ha sido modificado");
                     successAlert.showAndWait();
+                    club.administrador.actualizarMiembro(miembro1);
                     limpiarCampos();
                 } else {
                     Alert successAlert = new Alert(Alert.AlertType.ERROR);
@@ -172,6 +173,7 @@ public class MiembroController {
             successAlert.setTitle("Éxito");
             successAlert.setContentText("El miembro ha sido eliminado");
             successAlert.showAndWait();
+            club.administrador.eliminarMiembro(miembroSeleccionado);
             limpiarCampos();
         }
     }
@@ -249,7 +251,7 @@ public class MiembroController {
 
             @Override
             public TipoMiembro fromString(String string) {
-                return null; // No es necesario para este caso
+                return null;
             }
         });
         assert txtNombre != null : "fx:id=\"txtNombre\" was not injected: check your FXML file 'MiembroView.fxml'.";

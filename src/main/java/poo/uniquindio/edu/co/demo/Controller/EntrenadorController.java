@@ -91,6 +91,7 @@ public class EntrenadorController {
             this.entrenadores.add(entrenador);
             this.tblEntrenador.setItems(entrenadores); // Actualizar los items de la TableView
             // this.tblMiembros.refresh(); Refrescar la TableView
+            club.administrador.registrarEntrenador(entrenador);
             limpiarCampos();
 
             // Mostrar alerta de éxito
@@ -139,6 +140,7 @@ public class EntrenadorController {
             successAlert.setTitle("Éxito");
             successAlert.setContentText("El entrenador ha sido eliminado");
             successAlert.showAndWait();
+            club.administrador.eliminarEntrenador(entrenadorSeleccionado);
             limpiarCampos();
         }
 
@@ -175,6 +177,7 @@ public class EntrenadorController {
                     successAlert.setTitle("Éxito");
                     successAlert.setContentText("El entrenador ha sido modificado");
                     successAlert.showAndWait();
+                    club.administrador.actualizarEntrenador(entrenador1);
                     limpiarCampos();
                 }
                 else{
