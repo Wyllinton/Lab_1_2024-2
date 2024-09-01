@@ -1,6 +1,7 @@
 package poo.uniquindio.edu.co.demo.Model;
 
 import java.util.List;
+import java.util.ArrayList;
 
 public class Entrenador {
     private String nombre;
@@ -8,11 +9,11 @@ public class Entrenador {
     private Deporte deporte;
     private List<SesionEntrenamiento> sesionEntrenamientos;
 
-    public Entrenador(String nombre, String descripcion, Deporte deporte, List<SesionEntrenamiento> sesionEntrenamientos) {
+    public Entrenador(String nombre, String descripcion, Deporte deporte) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.deporte = deporte;
-        this.sesionEntrenamientos = sesionEntrenamientos;
+        this.sesionEntrenamientos = new ArrayList<SesionEntrenamiento>();
     }
     public String getNombre() {
         return nombre;
@@ -48,6 +49,11 @@ public class Entrenador {
         result = prime * result + ((deporte == null) ? 0 : deporte.hashCode());
         result = prime * result + ((sesionEntrenamientos == null) ? 0 : sesionEntrenamientos.hashCode());
         return result;
+    }
+    @Override
+    public String toString() {
+        return "Entrenador [nombre=" + nombre + ", descripcion=" + descripcion + ", deporte=" + deporte
+                + ", sesionEntrenamientos=" + sesionEntrenamientos + "]";
     }
     @Override
     public boolean equals(Object obj) {

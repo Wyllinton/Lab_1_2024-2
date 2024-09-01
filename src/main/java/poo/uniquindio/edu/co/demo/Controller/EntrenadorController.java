@@ -78,8 +78,7 @@ public class EntrenadorController {
             alert.setContentText("Todos los campos son requeridos");
             alert.showAndWait();
         }
-        Entrenador entrenador = new Entrenador(nombre, descripcion, cbDeporte.getSelectionModel().getSelectedItem(),
-                null);
+        Entrenador entrenador = new Entrenador(nombre, descripcion, cbDeporte.getSelectionModel().getSelectedItem());
 
         club.administrador.registrarEntrenador(entrenador);
 
@@ -164,7 +163,7 @@ public class EntrenadorController {
                 String descripcion = this.txtDescripcion.getText();
                 Deporte deporte = this.cbDeporte.getSelectionModel().getSelectedItem();
 
-                Entrenador entrenador1 = new Entrenador(nombre, descripcion, deporte, null);
+                Entrenador entrenador1 = new Entrenador(nombre, descripcion, deporte);
 
                 if(!this.entrenadores.contains(entrenador1)){
                     entrenadorSeleccionado.setNombre(entrenador1.getNombre());
