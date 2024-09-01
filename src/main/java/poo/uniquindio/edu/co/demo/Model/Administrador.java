@@ -11,25 +11,15 @@ import util.AssertionUtil;
 
 public class Administrador extends Persona implements gestionarMiembro {
 
-    private String correoElectronico;
     private List<SesionEntrenamiento> sesiones;
     private List<Miembro> listaMiembros;
     private List<Entrenador> entrenadores;
 
     public Administrador(String nombre, String numeroId, String correoElectronico) {
         super(nombre, numeroId);
-        this.correoElectronico = correoElectronico;
         this.sesiones = new ArrayList<SesionEntrenamiento>();
         this.listaMiembros = new ArrayList<Miembro>();
         this.entrenadores = new ArrayList<Entrenador>();
-    }
-
-    public String getCorreoElectronico() {
-        return correoElectronico;
-    }
-
-    public void setCorreoElectronico(String correoElectronico) {
-        this.correoElectronico = correoElectronico;
     }
 
     public List<SesionEntrenamiento> getSesiones() {
@@ -84,11 +74,6 @@ public class Administrador extends Persona implements gestionarMiembro {
         if (getClass() != obj.getClass())
             return false;
         Administrador other = (Administrador) obj;
-        if (correoElectronico == null) {
-            if (other.correoElectronico != null)
-                return false;
-        } else if (!correoElectronico.equals(other.correoElectronico))
-            return false;
         if (sesiones == null) {
             if (other.sesiones != null)
                 return false;
