@@ -97,7 +97,7 @@ public class ClubDeportivo implements gestionarMiembro {
     }
 
     @Override
-    public void registrarMiembro(Miembro miembro, Deporte deporte) {
+    public void comprobarMiembroDeporte(Miembro miembro, Deporte deporte) {
         switch (miembro.getTipoMiembro()) {
             case JUVENIL:
                 switch (deporte.getNivelDificultad()) {

@@ -5,14 +5,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
+
+import javafx.scene.control.Alert;
 import util.AssertionUtil;
 
-public class Administrador extends Persona implements gestionarMiembro{
+public class Administrador extends Persona implements gestionarMiembro {
 
-        private String correoElectronico;
-        private List<SesionEntrenamiento> sesiones;
-        private List<Miembro> listaMiembros;
-        private List<Entrenador> entrenadores;
+    private String correoElectronico;
+    private List<SesionEntrenamiento> sesiones;
+    private List<Miembro> listaMiembros;
+    private List<Entrenador> entrenadores;
 
     public Administrador(String nombre, String numeroId, String correoElectronico) {
         super(nombre, numeroId);
@@ -21,56 +23,58 @@ public class Administrador extends Persona implements gestionarMiembro{
         this.listaMiembros = new ArrayList<Miembro>();
         this.entrenadores = new ArrayList<Entrenador>();
     }
+
     public String getCorreoElectronico() {
         return correoElectronico;
     }
+
     public void setCorreoElectronico(String correoElectronico) {
         this.correoElectronico = correoElectronico;
     }
+
     public List<SesionEntrenamiento> getSesiones() {
         return sesiones;
     }
 
-    public String gestionarInscripciones(){
+    public String gestionarInscripciones() {
 
         String mensaje = "";
         if (sesiones.isEmpty()) {
             mensaje = "No hay sesiones.";
-        }
-        else {
+        } else {
             mensaje += "La(s) sesion(es) de entrenamiento son:\n";
             for (SesionEntrenamiento sesion : sesiones) {
-                    mensaje += sesion.toString() +" \n";
-                }
+                mensaje += sesion.toString() + " \n";
             }
-        
+        }
+
         return mensaje;
 
     }
 
     public String programarSesion(LocalDate fecha, float duracion, Entrenador entrenador,
-    Miembro miembro, Deporte deporte, String estadoSesion, String identificador) {
+            Miembro miembro, Deporte deporte, String estadoSesion, String identificador) {
         String mensaje = "";
-        SesionEntrenamiento nuevaSesion = new SesionEntrenamiento(fecha, duracion, entrenador, miembro, deporte, estadoSesion, identificador);
+        SesionEntrenamiento nuevaSesion = new SesionEntrenamiento(fecha, duracion, entrenador, miembro, deporte,
+                estadoSesion, identificador);
         sesiones.add(nuevaSesion);
         mensaje = "La sesion se ha creado con éxito: " + nuevaSesion.toString();
         return mensaje;
     }
 
-
     public String eliminarSesion(String identificador) {
 
         for (SesionEntrenamiento sesion : sesiones) {
-            if (sesion.getIdentificador().equals(identificador)){
+            if (sesion.getIdentificador().equals(identificador)) {
                 sesiones.remove(sesion);
-                String mensaje ="La sesion "+ sesion.toString()+" ha sido cancelada ";
+                String mensaje = "La sesion " + sesion.toString() + " ha sido cancelada ";
                 return mensaje;
             }
         }
         String mensaje = ("No se encontró sesion con el id especificado");
         return mensaje;
     }
-    
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -97,19 +101,18 @@ public class Administrador extends Persona implements gestionarMiembro{
         String mensaje = "";
         if (sesiones.isEmpty()) {
             mensaje = "No hay sesiones.";
-        }
-        else {
-            mensaje += "La(s) sesion(es) de entrenamiento con fecha "+ fecha + " es:\n";
+        } else {
+            mensaje += "La(s) sesion(es) de entrenamiento con fecha " + fecha + " es:\n";
             for (SesionEntrenamiento sesion : sesiones) {
-                if (sesion.getFecha().equals(fecha)){
-                    mensaje += sesion.toString() +" \n";
+                if (sesion.getFecha().equals(fecha)) {
+                    mensaje += sesion.toString() + " \n";
                 }
             }
         }
         return mensaje;
     }
 
-       public List<Miembro> getListaMiembros() {
+    public List<Miembro> getListaMiembros() {
         return listaMiembros;
 
     }
@@ -120,13 +123,11 @@ public class Administrador extends Persona implements gestionarMiembro{
 
     // Método para registrar un miembro en la lista
     public void registrarMiembro(Miembro miembro) {
-        validarMiembroExiste(miembro);
         listaMiembros.add(miembro);
     }
 
     // Método para eliminar un miembro en la lista
     public void eliminarMiembro(Miembro miembro) {
-        validarMiembroExiste(miembro);
         listaMiembros.remove(miembro);
     }
 
@@ -135,7 +136,7 @@ public class Administrador extends Persona implements gestionarMiembro{
             Miembro miembro = listaMiembros.get(i);
             if (miembro.getNumeroId().equals(miembroActualizado.getNumeroId())) {
                 // Actualizar el miembro en la lista
-                listaMiembros.set(i, miembroActualizado); 
+                listaMiembros.set(i, miembroActualizado);
                 break; // Salir del bucle una vez que se ha encontrado y actualizado el miembro
             }
         }
@@ -143,13 +144,11 @@ public class Administrador extends Persona implements gestionarMiembro{
 
     // Método para registrar un entrenador en la lista
     public void registrarEntrenador(Entrenador entrenador) {
-        validarEntrenadorExiste(entrenador);
         entrenadores.add(entrenador);
     }
 
     // Método para registrar un entrenador en la lista
     public void eliminarEntrenador(Entrenador entrenador) {
-        validarEntrenadorExiste(entrenador);
         entrenadores.remove(entrenador);
     }
 
@@ -158,7 +157,7 @@ public class Administrador extends Persona implements gestionarMiembro{
             Entrenador entrenador = entrenadores.get(i);
             if (entrenador.getNombre().equals(entrenador.getNombre())) {
                 // Actualizar el miembro en la lista
-                entrenadores.set(i, entrenadorActualizado);    
+                entrenadores.set(i, entrenadorActualizado);
                 break; // Salir del bucle una vez que se ha encontrado y actualizado el entrenador
             }
         }
@@ -190,23 +189,22 @@ public class Administrador extends Persona implements gestionarMiembro{
         return entrenadores.stream().filter(nombreIgual.and(numeroIdIgual)).findAny();
     }
 
-
     public Entrenador buscarEntrenadorPorNombre(String nombre) {
         return entrenadores.stream()
                 .filter(entrenador -> entrenador.getNombre().equals(nombre))
                 .findAny()
                 .orElse(null); // Devuelve null si no se encuentra el entrenador
-    }    
+    }
 
     public Miembro buscarMiembroPorId(String id) {
         return listaMiembros.stream()
                 .filter(miembro -> miembro.getNumeroId().equals(id))
                 .findAny()
                 .orElse(null); // Devuelve null si no se encuentra el miembro
-    }  
+    }
 
     @Override
-    public void registrarMiembro(Miembro miembro, Deporte deporte) {
+    public void comprobarMiembroDeporte(Miembro miembro, Deporte deporte) {
         switch (miembro.getTipoMiembro()) {
             case JUVENIL:
                 switch (deporte.getNivelDificultad()) {
@@ -214,11 +212,14 @@ public class Administrador extends Persona implements gestionarMiembro{
                         deporte.registrarMiembro(miembro);
                     case MEDIO:
                         deporte.registrarMiembro(miembro);
-                        // System.out.println("Se ha inscrito exitosamente en un deporte de nivel");
                         break;
                     case ALTO:
-                        new RuntimeException("El miembro no se puede registrar debido al nivel de dificultad");
-                        // System.out.println("No puede inscribirse en deportes de nivel ALTO.");
+
+                        Alert successAlert = new Alert(Alert.AlertType.ERROR);
+                        successAlert.setHeaderText(null);
+                        successAlert.setTitle("Error");
+                        successAlert.setContentText("El miembro no se puede registrar debido al nivel de dificultad");
+                        successAlert.showAndWait();
                         break;
                 }
                 break;
@@ -231,8 +232,4 @@ public class Administrador extends Persona implements gestionarMiembro{
         }
     }
 
-    
-
 }
-
-

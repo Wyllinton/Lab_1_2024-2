@@ -18,6 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.util.StringConverter;
+import poo.uniquindio.edu.co.demo.Model.ClubDeportivo;
 import poo.uniquindio.edu.co.demo.Model.Miembro;
 import poo.uniquindio.edu.co.demo.Model.TipoMiembro;
 
@@ -67,6 +68,8 @@ public class MiembroController {
 
     private ObservableList<Miembro> miembros;
 
+    ClubDeportivo club = new ClubDeportivo("");
+
     private void limpiarCampos() {
         txtNombre.clear();
         txtNumeroId.clear();
@@ -100,6 +103,7 @@ public class MiembroController {
     @FXML
     void actualizarMiembro(ActionEvent event) {
         Miembro miembroSeleccionado = this.tblMiembros.getSelectionModel().getSelectedItem();
+        club.administrador.actualizarMiembro(miembroSeleccionado);
 
         if (miembroSeleccionado == null) {
             Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
@@ -115,6 +119,7 @@ public class MiembroController {
                 TipoMiembro tipoMiembro = this.cbTipo.getSelectionModel().getSelectedItem();
 
                 Miembro miembro1 = new Miembro(nombre, numeroId, tipoMiembro, correo);
+                club.administrador.actualizarMiembro(miembro1);
 
                 if (!this.miembros.contains(miembro1)) {
                     miembroSeleccionado.setNombre(miembro1.getNombre());
@@ -151,6 +156,8 @@ public class MiembroController {
     void eliminarMiembro(ActionEvent event) {
         Miembro miembroSeleccionado = this.tblMiembros.getSelectionModel().getSelectedItem();
 
+        club.administrador.eliminarMiembro(miembroSeleccionado);
+
         if (miembroSeleccionado == null) {
             Alert successAlert = new Alert(Alert.AlertType.ERROR);
             successAlert.setHeaderText(null);
@@ -185,6 +192,8 @@ public class MiembroController {
             alert.showAndWait();
         }
         Miembro miembro = new Miembro(nombre, numeroId, tipo, correo);
+
+        club.administrador.registrarMiembro(miembro);
 
         if (miembroYaExiste(miembro)) {
             alert.setHeaderText(null);

@@ -18,6 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.util.StringConverter;
+import poo.uniquindio.edu.co.demo.Model.ClubDeportivo;
 import poo.uniquindio.edu.co.demo.Model.Deporte;
 import poo.uniquindio.edu.co.demo.Model.Entrenador;
 import poo.uniquindio.edu.co.demo.Model.NivelDificultad;
@@ -62,6 +63,8 @@ public class EntrenadorController {
     @FXML
     private Button btnEliminar;
 
+    ClubDeportivo club = new ClubDeportivo("");
+
     @FXML
     void registrarEntrenador(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -77,6 +80,8 @@ public class EntrenadorController {
         }
         Entrenador entrenador = new Entrenador(nombre, descripcion, cbDeporte.getSelectionModel().getSelectedItem(),
                 null);
+
+        club.administrador.registrarEntrenador(entrenador);
 
         if (entrenadorYaExiste(entrenador)) {
             alert.setHeaderText(null);
@@ -119,6 +124,8 @@ public class EntrenadorController {
     void eliminarEntrenador(ActionEvent event) {
         Entrenador entrenadorSeleccionado = this.tblEntrenador.getSelectionModel().getSelectedItem();
 
+        club.administrador.eliminarEntrenador(entrenadorSeleccionado);
+
         if (entrenadorSeleccionado == null){
             Alert successAlert = new Alert(Alert.AlertType.ERROR);
             successAlert.setHeaderText(null);
@@ -141,6 +148,8 @@ public class EntrenadorController {
     @FXML
     void actualizarEntrenador(ActionEvent event) {
         Entrenador entrenadorSeleccionado = this.tblEntrenador.getSelectionModel().getSelectedItem();
+
+        club.administrador.actualizarEntrenador(entrenadorSeleccionado);
 
         if (entrenadorSeleccionado == null){
             Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
