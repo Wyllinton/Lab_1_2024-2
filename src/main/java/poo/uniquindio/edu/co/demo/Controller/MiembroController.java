@@ -67,7 +67,7 @@ public class MiembroController {
     private TextField txtCorreo;
 
     private ObservableList<Miembro> miembros;
-
+    
     ClubDeportivo club = new ClubDeportivo("");
 
     private void limpiarCampos() {
@@ -178,7 +178,6 @@ public class MiembroController {
 
     @FXML
     void registrarMiembro(ActionEvent event) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
 
         String nombre = txtNombre.getText().trim();
         String numeroId = txtNumeroId.getText().trim();
@@ -186,6 +185,7 @@ public class MiembroController {
         TipoMiembro tipo = cbTipo.getSelectionModel().getSelectedItem();
 
         if (nombre.isEmpty() || cbTipo == null || numeroId.isEmpty() || correo.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("Error");
             alert.setContentText("Todos los campos son requeridos");
@@ -193,9 +193,8 @@ public class MiembroController {
         }
         Miembro miembro = new Miembro(nombre, numeroId, tipo, correo);
 
-        club.administrador.registrarMiembro(miembro);
-
         if (miembroYaExiste(miembro)) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("Error");
             alert.setContentText("El miembro ya se encuentra registrado");
@@ -204,7 +203,7 @@ public class MiembroController {
             this.miembros.add(miembro);
             this.tblMiembros.setItems(miembros); // Actualizar los items de la TableView
             // this.tblMiembros.refresh(); Refrescar la TableView
-            limpiarCampos();
+            club.administrador.registrarMiembro(miembro);
 
             // Mostrar alerta de éxito
             Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
